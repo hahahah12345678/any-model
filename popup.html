@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnyModel 3D Studio</title>
+    <link rel="stylesheet" href="css/popup.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r158/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/exporters/STLExporter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/exporters/OBJExporter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/exporters/GLTFExporter.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>AnyModel 3D Studio</h1>
+            <div class="header-buttons">
+                <button id="newProject" class="btn btn-primary">New</button>
+                <button id="saveProject" class="btn btn-secondary">Save</button>
+                <button id="loadProject" class="btn btn-secondary">Load</button>
+            </div>
+        </header>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="tool-section">
+                <h3>Manual Tools</h3>
+                <div class="tool-buttons">
+                    <button id="addCube" class="tool-btn" title="Add Cube">
+                        <span class="icon">⬜</span>
+                    </button>
+                    <button id="addSphere" class="tool-btn" title="Add Sphere">
+                        <span class="icon">🔴</span>
+                    </button>
+                    <button id="addCylinder" class="tool-btn" title="Add Cylinder">
+                        <span class="icon">⚪</span>
+                    </button>
+                    <button id="addCone" class="tool-btn" title="Add Cone">
+                        <span class="icon">🔺</span>
+                    </button>
+                    <button id="addTorus" class="tool-btn" title="Add Torus">
+                        <span class="icon">🍩</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3>Transform</h3>
+                <div class="tool-buttons">
+                    <button id="selectTool" class="tool-btn active" title="Select">
+                        <span class="icon">👆</span>
+                    </button>
+                    <button id="moveTool" class="tool-btn" title="Move">
+                        <span class="icon">✋</span>
+                    </button>
+                    <button id="rotateTool" class="tool-btn" title="Rotate">
+                        <span class="icon">🔄</span>
+                    </button>
+                    <button id="scaleTool" class="tool-btn" title="Scale">
+                        <span class="icon">↔️</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3>AI Tools</h3>
+                <div class="tool-buttons">
+                    <button id="aiGenerate" class="tool-btn ai-btn" title="AI Generate">
+                        <span class="icon">🤖</span>
+                    </button>
+                    <button id="aiEdit" class="tool-btn ai-btn" title="AI Edit">
+                        <span class="icon">✨</span>
+                    </button>
+                    <button id="aiOptimize" class="tool-btn ai-btn" title="AI Optimize">
+                        <span class="icon">⚡</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3>Export</h3>
+                <div class="tool-buttons">
+                    <button id="exportSTL" class="tool-btn export-btn" title="Export STL">
+                        STL
+                    </button>
+                    <button id="exportOBJ" class="tool-btn export-btn" title="Export OBJ">
+                        OBJ
+                    </button>
+                    <button id="exportGLTF" class="tool-btn export-btn" title="Export GLTF">
+                        GLTF
+                    </button>
+                    <button id="exportPLY" class="tool-btn export-btn" title="Export PLY">
+                        PLY
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- 3D Viewport -->
+            <div class="viewport-container">
+                <canvas id="viewport" width="800" height="600"></canvas>
+                <div class="viewport-controls">
+                    <button id="resetView" class="control-btn">Reset View</button>
+                    <button id="wireframe" class="control-btn">Wireframe</button>
+                    <button id="lighting" class="control-btn">Lighting</button>
+                </div>
+            </div>
+
+            <!-- Properties Panel -->
+            <div class="properties-panel">
+                <h3>Properties</h3>
+                <div id="objectProperties" class="properties-content">
+                    <p>Select an object to view properties</p>
+                </div>
+                
+                <div class="ai-panel">
+                    <h3>AI Assistant</h3>
+                    <textarea id="aiPrompt" placeholder="Describe what you want to create or modify..."></textarea>
+                    <button id="executeAI" class="btn btn-ai">Generate</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span id="statusText">Ready</span>
+            <span id="objectCount">Objects: 0</span>
+            <span id="selectedObject">Selected: None</span>
+        </div>
+    </div>
+
+    <script src="js/three-setup.js"></script>
+    <script src="js/modeling-tools.js"></script>
+    <script src="js/ai-integration.js"></script>
+    <script src="js/export-tools.js"></script>
+    <script src="js/popup.js"></script>
+</body>
+</html>
