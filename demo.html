@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnyModel 3D Studio - Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .demo-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .demo-header h1 {
+            color: #4CAF50;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .demo-header p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .feature-card {
+            background: #2d2d2d;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #404040;
+        }
+        .feature-card h3 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #404040;
+        }
+        .feature-card li:last-child {
+            border-bottom: none;
+        }
+        .extension-preview {
+            background: #2d2d2d;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #404040;
+            text-align: center;
+        }
+        .extension-preview h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .extension-mockup {
+            background: #1a1a1a;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .mockup-header {
+            width: 100%;
+            background: #2d2d2d;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mockup-title {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        .mockup-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .mockup-btn {
+            padding: 4px 8px;
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+        .mockup-content {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+        }
+        .mockup-toolbar {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 6px;
+            min-height: 400px;
+            flex: 0 0 200px;
+        }
+        .mockup-viewport {
+            background: linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 6px;
+            flex: 1;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 18px;
+            border: 1px dashed #404040;
+        }
+        .mockup-properties {
+            background: #242424;
+            padding: 15px;
+            border-radius: 6px;
+            min-height: 400px;
+            flex: 0 0 200px;
+        }
+        .installation-steps {
+            background: #2d2d2d;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #404040;
+            margin-top: 30px;
+        }
+        .installation-steps h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .step {
+            background: #1a1a1a;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+        .step h4 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 20px 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>🎯 AnyModel 3D Studio</h1>
+            <p>Professional 3D Modeling Chrome Extension with AI-Powered Features</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>🛠️ Manual Modeling Tools</h3>
+                <ul>
+                    <li>✅ Primitive shapes (cube, sphere, cylinder, cone, torus)</li>
+                    <li>✅ Transform tools (move, rotate, scale)</li>
+                    <li>✅ Material system with colors</li>
+                    <li>✅ Object grouping and duplication</li>
+                    <li>✅ Precision property editing</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>🤖 AI-Powered Features</h3>
+                <ul>
+                    <li>✅ Natural language model generation</li>
+                    <li>✅ AI-driven object editing</li>
+                    <li>✅ Intelligent model optimization</li>
+                    <li>✅ Smart suggestions and improvements</li>
+                    <li>✅ Context-aware modeling assistance</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>📁 Export & Import</h3>
+                <ul>
+                    <li>✅ STL export for 3D printing</li>
+                    <li>✅ OBJ format support</li>
+                    <li>✅ GLTF/GLB for web and games</li>
+                    <li>✅ PLY point cloud format</li>
+                    <li>✅ JSON scene format</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎨 Professional Interface</h3>
+                <ul>
+                    <li>✅ Real-time 3D viewport</li>
+                    <li>✅ Comprehensive toolbar</li>
+                    <li>✅ Properties panel</li>
+                    <li>✅ Keyboard shortcuts</li>
+                    <li>✅ Drag-and-drop file support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="extension-preview">
+            <h2>Extension Interface Preview</h2>
+            <div class="extension-mockup">
+                <div class="mockup-header">
+                    <div class="mockup-title">AnyModel 3D Studio</div>
+                    <div class="mockup-buttons">
+                        <button class="mockup-btn">New</button>
+                        <button class="mockup-btn">Save</button>
+                        <button class="mockup-btn">Load</button>
+                    </div>
+                </div>
+                <div class="mockup-content">
+                    <div class="mockup-toolbar">
+                        <div style="color: #4CAF50; font-weight: bold; margin-bottom: 10px;">Tools</div>
+                        <div style="font-size: 12px; color: #888;">Manual Tools</div>
+                        <div style="margin: 10px 0;">⬜ 🔴 ⚪ 🔺 🍩</div>
+                        <div style="font-size: 12px; color: #888; margin-top: 20px;">AI Tools</div>
+                        <div style="margin: 10px 0;">🤖 ✨ ⚡</div>
+                        <div style="font-size: 12px; color: #888; margin-top: 20px;">Export</div>
+                        <div style="margin: 10px 0; font-size: 10px;">STL OBJ GLTF PLY</div>
+                    </div>
+                    <div class="mockup-viewport">
+                        3D Viewport<br/>
+                        <small>Real-time 3D rendering with Three.js</small>
+                    </div>
+                    <div class="mockup-properties">
+                        <div style="color: #4CAF50; font-weight: bold; margin-bottom: 10px;">Properties</div>
+                        <div style="font-size: 12px; color: #888;">Position, Rotation, Scale</div>
+                        <div style="margin-top: 20px; padding: 10px; background: #1a1a1a; border-radius: 4px;">
+                            <div style="color: #667eea; font-weight: bold; margin-bottom: 10px;">AI Assistant</div>
+                            <div style="font-size: 11px; color: #888;">Natural language modeling</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="installation-steps">
+            <h2>🚀 Installation Instructions</h2>
+            
+            <div class="step">
+                <h4>Step 1: Download the Extension</h4>
+                <p>Clone or download the repository from GitHub:</p>
+                <code>git clone https://github.com/hahahah12345678/any-model.git</code>
+            </div>
+
+            <div class="step">
+                <h4>Step 2: Enable Developer Mode</h4>
+                <p>In Chrome, navigate to <code>chrome://extensions/</code> and toggle "Developer mode" on.</p>
+            </div>
+
+            <div class="step">
+                <h4>Step 3: Load the Extension</h4>
+                <p>Click "Load unpacked" and select the <code>any-model</code> directory.</p>
+            </div>
+
+            <div class="step">
+                <h4>Step 4: Start Creating!</h4>
+                <p>Click the AnyModel icon in your Chrome toolbar to open the 3D modeling studio.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="download-btn">📥 Download Extension</a>
+                <a href="#" class="download-btn">📖 View Documentation</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; color: #888;">
+            <p>Made with ❤️ for the 3D modeling community</p>
+            <p>Built with Three.js, Chrome Extensions API, and AI integration</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple demo interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('AnyModel Demo Page Loaded');
+            
+            // Add some hover effects
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 25px rgba(76, 175, 80, 0.2)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
